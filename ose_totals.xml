@@ -1,0 +1,27 @@
+<modification>
+        <id><![CDATA[Totals modification for cart popup, checkout cart and confirmation page]]></id>
+        <version><![CDATA[1]]></version>
+        <vqmver><![CDATA[1]]></vqmver>
+        <author><![CDATA[Opensource Experts]]></author>
+	<file path="catalog/controller/common/" name="cart.php">
+	  <operation>
+	    <search position="after">
+	      <![CDATA['text'  => $this->currency->format($result['value']),]]></search>
+	      <add> <![CDATA['code'  => $result['code'],]]></add>
+	  </operation>
+	</file>
+	<file path="catalog/controller/checkout/" name="cart.php">
+	  <operation>
+	    <search position="before">
+	      <![CDATA['text'  => $this->currency->format($total['value'])]]></search>
+	      <add> <![CDATA['code'  => $total['code'],]]></add>
+	  </operation>
+	</file>
+	<file path="catalog/controller/checkout/" name="confirm.php">
+	  <operation>
+	    <search position="after">
+	      <![CDATA['text'  => $this->currency->format($total['value']),]]></search>
+	      <add> <![CDATA['code'  => $total['code'],]]></add>
+	  </operation>
+	</file>
+</modification>
